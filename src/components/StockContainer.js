@@ -1,13 +1,23 @@
 import React from "react";
 import Stock from "./Stock";
 
-function StockContainer() {
+function StockContainer({ stocks, handleClick }) {
+
+
   return (
     <div>
       <h2>Stocks</h2>
-      {/* render stock list here*/}
+      {stocks.map(value =>
+        <Stock
+          handleClick={handleClick}
+          key={value.id} 
+          stock={value}
+         /> )}
     </div>
   );
 }
 
 export default StockContainer;
+
+
+// DO NOT FORGET TO INCLUDE KEY WITH UNIQUE ID WHEN USING MAP METHOD 
